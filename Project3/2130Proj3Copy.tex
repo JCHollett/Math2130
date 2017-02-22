@@ -1,0 +1,188 @@
+\documentclass[12pt]{extarticle}
+
+\usepackage{fancyhdr,amsfonts,graphicx,wrapfig,sidecap,float,adjustbox,subcaption,indentfirst,amsmath,hyperref}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{gensymb}
+\usepackage{setspace}
+\linespread{1.8}
+\usepackage[right=2.5cm,left=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+\pagestyle{fancy}
+\lhead{Memorial University of Newfoundland}
+\rhead{Department of Mathematics and Statistics}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\lfoot{Mathematics 2130}
+\cfoot{}
+\rfoot{Fall 2015, Project 2}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+\begin{titlepage}
+\vspace*{2in}
+\begin{center}
+{\LARGE Ancestry and Relations}
+\end{center}
+
+\vspace{2cm}
+
+\abstract{In this paper, common trends amongst ancestry lines are analyzed and observed. The goal of the paper is to show how common ancestry forms in subsequent generations of offspring. The methods used include unique and non-unique testing. The affect of population growth is also observed with these methods. }
+
+
+\vspace{3in}
+\begin{flushright}
+\begin{tabular}{l}
+Project 3 \\
+Mathematics 2130\\
+Submitted by: John Hollett\\
+Submitted to: Ivan Booth\\
+\today
+\end{tabular}
+\end{flushright}
+
+
+\end{titlepage}
+
+
+\lhead{Ancestry and Relations}
+\rhead{Math 2130}
+\lfoot{John Hollett}
+\rfoot{\thepage}
+%\underheadoverfoot
+
+
+
+
+\section{Introduction}
+In this paper, how ancestry changes after each subsequent generation will be discussed. Generations refer to the population of each specific generation. The tests range from basic conditions to more selective processes. These processes will include random sampling with and without unique pairs. A pair refers to the duality between ancestors whether uniquely selected or not. 
+
+In non-unique tests, the participants of each generation may be assigned the same parent. In unique testing, each participant contains two different parents. The difference between these tests will be explored and compared.
+
+A program was written in C$^\#$ for tracing and tracking ancestry. This utility is required to perform the ancestry tests. The following equation describes the approximate number of generations required to see a common ancestor. This simple simulation is tasked with the responsibility of networking relationships in a decipherable manner.
+
+\begin{align}
+\label{eqn}
+C_{Generation} = \log_2 (N_{Population})
+\end{align}
+ 
+This section will include sampling and analysis of non-unique ancestors of varying sizes for each generation. The figure (\ref{fig:img1}) depicts the results of a test. 
+
+In this test, an initial population of ten is selected, and a maximum of ten generations of humans. Each test in the paper is iterated 250 times, including this test.
+
+This test serves as a proof in determining the program works correctly. A smaller size test was created and carried out to satisfy this requirement.
+
+In Figure (\ref{fig:img1}), the axes described is equivalent in for each test. The information shown is the number of common ancestors for each generation starting from the founding generation.
+\begin{align}
+\notag
+C_{Generation} = \log_2(10) = 3.32
+\end{align}
+\indent With the data depicted by figure (\ref{fig:img1}), it is possible for one common ancestor to emerge after the second generation. Using equation (\ref{eqn}), the result supports the graph. This information shows the utility created performs sufficiently to produce proper data.
+
+
+\subsection{Further Testing}
+
+In this section, several tests are compared. Each test consists of varying initial population sizes. The number of maximum generations remains set to fifty.
+
+Based on Figure (\ref{fig:img2}), trends can be observed from the changing initial size. Each of tests performed shows a common ancestor emerges only after the first or second generation.
+
+The tests using lower initial population show the number of generations required to produce a non-changing common ancestor set changes with initial population. This is also seen in larger founding population sizes.
+
+In Figure (\ref{fig:img3}), the data contradict perceived consistency in the number of generations required to observe a consistent ancestor set across all subsequent generations. Despite these results, the simulation returns the average number of generations it takes to form a common ancestry set for each founding population. 
+
+The average of ancestors carried through subsequent generations depicted in the figures (\ref{fig:img3}) and (\ref{fig:img4}) is roughly 80$\%$ of the starting population. Inversely, 20$\%$ of the founding population drops from the ancestry tree outright. The data depicted in the next section addresses any influences uniquely selected ancestors exhibit.
+
+Uniquely selected ancestors differs in the methods utilized. Parents chosen for the elements in a new generation are not equal for unique tests. 
+
+
+\section{Unique Testing}
+
+
+The data prepared in the previous section contrast the differences of unique and non-unique tests. Tests were re-ran for populations of $10, 25, 50$ and $100, 200, 300$. The number of maximum generations the tests were ran with remains fifty for this section.
+
+\indent Figure (\ref{fig:img4}) and (\ref{fig:img5}) shows the average amount of common ancestors in relation to each generation. Using unique selection, the analysis reveals similar results. Checking the results with equation (\ref{eqn}) for each initial population supports figures (\ref{fig:img4}) and (\ref{fig:img5}).
+\begin{align}
+\notag
+C_{Generation} = \log_2(50) = 5.64
+\end{align}
+\indent Figure (\ref{fig:img5}) depicts a unique ancestor set being formed in relation to the founding size as seen in the previous section. This proves the difference between the two methods has negligible affect on the data.
+
+Figure (\ref{fig:img6}) shows increasing initial populations. The increase in population in subsequent generation is at a constant rate of $N$. The result of unique and non-unique tests show there is no significant difference between the two. The unique test results, on average, produce negligibly greater amounts of ancestors. Meanwhile the number of generations required to find an ancestor is greater however it is insignificant.
+
+\section{Population Growth}
+
+The tests done for this section will simulate population growth. Growth is determined by a percentage that is constant amongst each generation. The population of any subsequent generation is determined by applying the percentage to the prior generation.
+
+For the tests completed in this section, the populations will grow in size for each generation. The initial population for each test is 25 and varying growth percentages.
+
+In figure (\ref{fig:img7}), despite the population growth, the average number of ancestors remains relatively consistent in all tests. The significant difference is seen when the common ancestry set is found. 
+
+With increasing population growth, the number of common ancestors increases. This result reflects the improved probability of selecting and thus creating more common ancestors from founding set. 
+\begin{align}
+\notag
+C_{\text{Generation}} = \log_2(25) = 4.64
+\end{align}
+
+
+The first common ancestor occurs approximately during the 5$^{\text{th}}$ generation. Following the 5$^{\text{th}}$ generation, the common ancestor set expands until the complete ancestry set is found. Using equation (\ref{eqn}), the result above agrees with figure(\ref{fig:img7}).
+
+\section{Technical Details}
+
+Explanation of the details of the testing methods are outlined in this section. The data collected were created using a simulation. The C$^\#$ programming language was used to create a iterative function to simulate data.
+
+Two programmed objects named "Human" and "Generation" were used to correlate coherent data. In a generation, a set of "human" elements is stored. Previous sets are accessible in each "Generation". A newly created "Generation" replaces the last as the current set. Using sequences in mathematics this is explained. A sequence defined using the initial element $A_1$ and subsequent elements are described in relation to the first in the sequence. The following example describes this process:
+
+\begin{align}
+\notag
+& A_1 = \text{Generation}_0 \\
+\notag
+& A_N =\text{Generation}_{N-1}, \text{Where } N \geq 2 \\
+\notag
+&\text{Where Generation}_I \text{ is the population set at index I} 
+\end{align}
+
+A "Human" is defined as an object containing two "human" ancestors. For subsequent generations, each "Human" contains the union of its two ancestor's ancestors derived from the original population set. This process is described as:
+
+\begin{align}
+\notag
+P &= \{p_0..p_N\}, \text{Where P denotes original ancestry set} \\
+\notag
+A &= \{a\in P | a_0,a_1, ..., a_N\} \\
+\notag
+B &= \{b\in P| b_0,b_1, ..., b_N\} \\
+\notag
+C &= A \cup B, \text{Where C is the ancestry set of the current Human} \\
+\end{align}
+
+Testing ancestry in the current generation, the simulation processes the elements in the set. Using a "Human" in the set, a copy is created of its ancestry set. The copy is then intersected by each remaining "human" in the generation. If the list created is not empty, there is at least one common ancestor in the current generation.
+
+New generations are created using parameters describing; number of new elements, previous generation, uniqueness. Creating a new population requires the prior generation. The two methods for creating each "human" in the population is determined by reading the uniqueness parameter. A non-unique "human" is created by selecting two random parents. Unique describes the same process as non-unique while requiring the parents to be unequal.
+
+Figure (\ref{fig:img8}) depicts method used to randomly select a parent from a population of 25. While there is no definitive trend in this data, the line of best indicates gradual error. As the number of trials approaches completion, the trend line rests in the middle of the range. This suggests most of the error is eliminated through sufficient testing. The error caused by the method used for selecting a parent is negligible but, other studies require more reliable methods. 
+
+In a population set containing 25 elements, the randomly selected values lies between $0$ and $24$. Maximum value in figure (\ref{fig:img8}) is 24. A set of data containing 25 elements in the language chosen begins at 0 and ends at 24. The actual range is $0, ..., 24$ inclusive, resulting in 25 elements.
+
+\section{Conclusion}
+
+The tests performed this paper, show common ancestry occurs consistently after a number of generations. The figures provided show the initial population affects the appearance of a common ancestor. Following the observation of a common ancestor, the figures depict consistently increasing traces of the founding members in each "Human". This trend is seen for unique and non-unique data, with or without population growth.
+
+In a paper on ancestry \cite{Population}, the results of tests were far more advanced and complex than those used in this test. It takes into account the various levels of segregation in the population, such as migration and life span.
+
+While this paper does not detail such in depth analysis, real world application of the results does merit a meaningful conclusion. It serves as evidence that common ancestry occurs and it should not surprise the reader that he/she may be distantly related to the writer.
+
+
+
+
+\newpage
+
+\lstset{basicstyle=\footnotesize,breaklines=true}
+\lstset{framextopmargin=50pt,frame=bottomline}
+
+\section{C$^{\#}$ Code}
+\newpage
+\begin{thebibliography}{99}
+\bibitem{Population}"On the Common Ancestors of All Living Humans" \url{http://tedlab.mit.edu/~dr/Papers/Rohde-MRCA-two.pdf}, Douglas L. T. Rhode, Massachusetts Institute of Technology, 11 November 2003, Web 9 November 2015
+
+\end{thebibliography}
+
+\end{document}
